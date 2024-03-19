@@ -45,3 +45,70 @@
 
 - thẻ không thay đổi định dạng
 - thẻ không có ý nghĩa
+
+# blockquote
+
+- Thẻ trích dẫn, trích dẫn 1 phần nội dung của trang web được copy từ các nguồn khác
+- Định dạng khác với những thẻ nội dung khác
+
+# pre
+
+- thường sử dụng để trình bày 1 đoạn mã máy tính - code
+- để viết được thẻ html trong thẻ pre, sử dụng html entities với
+- < (less than) = &lt;
+- > (greather than) = &gt;
+
+# html entities
+
+Tác dụng:
+
+- thể hiện được đoạn mã máy tính trong thẻ pre
+- giải quyết bài toán liên quan đến bảo mật XSS
+
+# Nhóm thẻ inline
+
+# a
+
+# Đường dẫn tuyệt đối, tương đối
+
+1. Thế nào là Đường dẫn tuyệt đối? tương đối?
+
+- tuyệt đối: là đường dẫn không phụ thuộc vào vị trí thư mục đang đứng hiện tại
+- tương đối: là đường dẫn phụ thuộc vào vị trí đang thư mục đứng hiện tại
+
+2. Phân biệt các loại đường dẫn
+   ./duong-dan --> tương đối: phụ thuộc vào thư mục đang đứng
+   duong-dan --> tương đối: phụ thuộc vào thư mục đang đứng
+   ../duong-dan -> tương đối: đẩy ra ngoài 1 cấp (vân phụ thuộc)
+   ../../duong-dan -> tương đối: đẩy ra ngoài 2 cấp (vẫn phụ thuộc)
+
+   /duong-dan --> tuyệt đối (di chuyển về gốc của tên miền, sau port)
+   //tenmien.com/duong-dan --> tuyệt đối
+   https://tenmien.com/duong-dan --> tuyệt đối
+
+# hash
+
+- sử dụng trong thẻ a
+
+# img
+
+Thuộc tính:
+
+- src: đường dẫn link ảnh
+- width: độ rộng, chỉ thay đổi khung hiển thị của ảnh chứ không thay đổi kích thước ảnh
+- title: tiêu đề của ảnh
+- alt: chú thích khi ảnh lỗi, tối ưu cho bộ máy tìm kiếm
+
+# span
+
+- thẻ định dạng kiểu nhưng không làm thay đổi định dạng gốc
+
+# b vs strong
+
+-
+
+# i vs em
+
+# u vs ins
+
+# s vs dell
