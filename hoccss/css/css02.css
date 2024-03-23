@@ -1,0 +1,42 @@
+/* * Selector CSS */
+/* 
+#title {
+  color: red;
+}
+
+.title {
+  color: green;
+}
+
+h3 {
+  color: blueviolet;
+} */
+
+/* .box .title {
+  color: red;
+}
+.content .title {
+  color: green;
+} */
+/* .box > .title {
+  color: red;
+}
+
+.box > div > div > .title {
+  color: green;
+} */
+
+h1.title {
+  color: red;
+}
+h1.title.title-large {
+  color: green;
+}
+
+/* h2.title {
+  color: green;
+} */
+
+/*
+Chọn càng chi tiết --> Độ ưu tiên càng cao
+*/

@@ -112,3 +112,50 @@ Thuộc tính:
 # u vs ins
 
 # s vs dell
+
+# table
+
+# thead
+
+- Bọc tiêu đề
+
+# tbody
+
+- bọc phần thân của bảng
+
+# tfoot
+
+- bọc phần chân của bảng
+
+# form
+
+- action: chứa đường link để gửi thông tin tới server
+- method: get - lây dữ liệu về / post - gửi dữ liệu đi
+
+# lable
+
+- for: focus tới id của thẻ input - nhập tên id
+- focus ở đây là khi click vào label
+
+# input
+
+- type: loại input - text/submit/radio/...
+- name:
+- id:
+- placeholder:
+- value: giá trị của input
+- readonly: chỉ đọc thông tin, nhưng vẫn được gửi lên server
+- disabled: vô hiệu hóa, không gửi được thông tin lên server
+- required: bắt buộc phải nhập
+- maxlength: giới hạn ký tự là bn
+
+# type
+
+- text
+- email
+- password
+- number: có thêm các thuộc tính min max step
+- date => ít dùng vì chạy trên trình duyệt safari bị lỗi, không thay đôi được định dạng theo ý mình muốn, date picker là mặc định không thay đổi được
+- avatar: Không thay đổi được choose file và no file chosen
+- range:
+- radio:
