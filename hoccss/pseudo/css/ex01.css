@@ -1,0 +1,34 @@
+/* 
+    selector::name {
+    }
+
+    - before: 
+    - after
+    - first-letter
+    - first-line
+    - selection
+    - placeholder
+*/
+h1::before {
+  content: "";
+}
+h1::after {
+  content: "";
+}
+p::first-letter {
+  color: red;
+}
+p::first-line {
+  color: green;
+}
+p::selection {
+  background-color: black;
+  color: white;
+}
+input::placeholder {
+  color: red;
+}
+
+input {
+  color: red;
+}
