@@ -2,10 +2,10 @@
     Attribute Selector
     1. tag[attribute] 
     2. tag[attribute="value"]
-    3. tag[attribute^="value"]: chọn thuộc tính có giá trị bắt đầu là value
-    4. tag[attribute*="value"]: chọn thuộc tính có giá trị chứa value 
-    5. tag[attribute$="value"]: chọn thuộc tính có giá trị kết thúc là value
-    6. tag[attribute~="value"]: chọn thuộc tính có giá trị là một từ  
+    3. tag[attribute^="value"]: chọn thuộc tính có giá trị bắt đầu là "value"
+    4. tag[attribute*="value"]: chọn thuộc tính có giá trị chứa "value" 
+    5. tag[attribute$="value"]: chọn thuộc tính có giá trị kết thúc là :
+    6. tag[attribute~="value"]: chọn thuộc tính có giá trị là một từ "value"  
 
     Lưu ý: class, id hoàn toàn có thể áp dụng như attribute selector
 */

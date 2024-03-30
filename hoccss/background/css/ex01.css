@@ -1,0 +1,54 @@
+/* 
+Background: 
+1. background-color
+
+2. background-image (3->6 bổ trợ cho bg-img)
+
+
+3. background-size: kích thước của bg
+-  cover: kích thước của bg lớn nhất
+
+
+
+4. background-position
+Giá trị thứ 1 là x
+Giá trị thứ 2 là y
+Giá trị đó có thể là tuyệt đối hhoặc là tuyệt đối
+
+Ví du: 
+- Tương đối
+  background-position: center bottom; 
+- Tuyệt đối:
+  background-position: 100px 50px; 
+
+5. background-repeat: thể hiện việc lặp lại trong hình ảnh bg
+- no-repeat: k lặp
+- repeat-x: lặp theo trục hoành x
+- repeat-y: lặp theo trục tung y
+- repeat: lặp lại theo cả trục x và y
+6. background-attachment
+
+
+7. background 
+
+Sự khác nhau giữa cover và contain trong  background-size
+
+
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background-color: aqua;
+  background-image: url("https://fastly.picsum.photos/id/92/200/300.jpg?hmac=9Eq_kpOk-5TZ2YHExdgGL_iYGHpJNmvUogSdSuZzGYE");
+  background-size: auto 700px;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.content {
+  background-color: bisque;
+}

@@ -1,0 +1,46 @@
+/* 
+ Thuộc tính font-size: Thay đổi cỡ chữ
+ Cú pháp: font-size: value + unit
+
+ Đơn vị: 
+ 1. Đơn vị tuyệt đối
+ - px
+ - pt = 1.3 * px
+
+ 2. Đơn vị tương đối
+ - em --> Tỷ lệ với thành phần cha
+ - rem --> Tỷ lệ với mặc định trình duyệt
+ - % --> Tỷ lệ với thành phần cha
+
+ 1em, rem = font-size cơ sở 
+
+font-size: 10px; 
+10 / 16 * 100 
+  1 rem = 10px
+
+
+*/
+
+/* 
+Thuộc tính line-height: Thiết lập chiều cao cho dòng văn bản (Giãn dòng)
+Cú pháp: line-height: value
+
+Giá trị thực: value * font-size của chính nó 
+
+font-size và line-height là 2 thuộc tính kế thừa
+
+*/
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+}
+.title {
+  font-size: 2.4rem;
+}
+
+p {
+  font-size: 30px;
+  line-height: 1.2;
+}

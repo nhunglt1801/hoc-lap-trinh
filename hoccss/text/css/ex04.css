@@ -1,0 +1,57 @@
+/*
+1. Thuộc tính text-decoration: Tạo line cho văn bản
+Giá trị: 
+- none
+- underline
+- overline
+- line-through
+
+
+2. Thuộc tính text-transform: Chữ hoa, Chữ thường
+- none: văn bản gốc
+- uppercase: viết hoa tất cả chữ cái
+- lowercase: viết thường tất cả chữ cái
+- capitalize: viết hoa chữ cái đầu tiên của 1 từ
+
+3. Thuộc tính letter-spacing: Khoảng cách giữa các ký tự
+
+4. Thuộc tính word-spacing: Khoảng cách giữa các từ 
+
+5. Thuộc tính word-wrap và word-break
+- word-wrap: break-word / normal 
+- word-break: break-all
+
+6. Thuộc tính text-indent: Lùi dòng đầu tiên 1 khoảng
+    cú pháp: text-indent: value
+
+7. Thuộc tính text-align: căn chỉnh chữ
+- left: căn trái
+- right: căn phải
+- center: căn giữa
+- justify: căn đều 2 bên
+Lưu ý: thuộc tính này sẽ căn chỉnh cả các thẻ inline: img, button, input,...
+
+- text-align-last: thuộc tính căn dòng cuối cùng
+
+*/
+
+body {
+  /* text-decoration: underline; */
+  /* text-transform: none; */
+  /* letter-spacing: 5px; */
+  word-spacing: 10px;
+}
+
+h2 {
+  word-wrap: break-word;
+  /* word-break: break-all; */
+}
+
+p {
+  /* text-indent: 20px; */
+  text-align: center;
+  text-align-last: right;
+}
+.link {
+  text-align: center;
+}
