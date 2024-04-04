@@ -1,0 +1,20 @@
+/*  
+Thuộc tính background-attachment
+- scroll
+- fixed
+
+Thuộc tinh background: color image position / size repeat attachment;
+*/
+
+.banner {
+  height: 2000px;
+  /* background-image: url(https://picsum.photos/400/800);
+  background-repeat: no-repeat;
+  background-color: red;
+  background-size: cover;
+  background-attachment: scroll; */
+
+  background: red url("https://picsum.photos/400/800") 0 0 / cover no-repeat
+    fixed;
+  filter: blur(8px);
+}

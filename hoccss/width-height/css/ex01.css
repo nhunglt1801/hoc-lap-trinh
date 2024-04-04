@@ -1,0 +1,53 @@
+/* 
+    Thuộc tính width: thiết lập chiều rộng
+    Thuộc tính height: thiết lập chiều cao
+
+    Thuộc tính min-width: chiều rộng nhỏ nhất
+    Thuộc tính max-width: chiều rộng lớn nhất
+
+    Thuộc tính min-height: chiều cao nhỏ nhất
+    Thuộc tính max-height: chiều cao lớn nhất
+
+    Đơn vị: viewport là khung mà người dùng nhìn thấy
+    - vh (viewport-height)
+    - vw (viewport-width)
+
+    --> Tỷ lệ vs viewport 
+
+    Lưu ý: Các thuộc tính kích thước chỉ hoạt động vs thẻ block
+
+
+    Thẻ inline có 2 loại:
+    - non-replace a, span, i , u, b,...
+    - replace --> img, iframe, video, input: phụ thuộc vào nội dung của thẻ, thẻ chuyển từ inline -> inline-block
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 1000px;
+}
+.box {
+  border: 1px solid red;
+  width: 100vw;
+  height: 100vh;
+}
+
+.box .content {
+  background: yellow;
+}
+.box a {
+  border: 1px dotted red;
+  width: 200px;
+  height: 40px;
+  display: inline-block;
+}
+img {
+  width: 100px;
+}
+iframe {
+  width: 100%;
+  height: 400px;
+}
