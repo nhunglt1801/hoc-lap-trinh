@@ -1,0 +1,37 @@
+/* 
+Thuộc tính paddin: dùng để Đệm một thẻ html (khoảng cách từ border đến nội dung)
+- padding nhận cả giá trị tương đối và giá trị duyệt đối
+--> padding sử dụng giá trị tương đối sẽ tỷ lệ với thành phần cha là font-size, font-size tăng bao nhiêu thì padding sẽ bị ảnh hưởng
+
+- padding-top và padding-bottom không hoạt động với thẻ inline 
+- padding sẽ nhận đủ các trường hợp: 1 giá trị, 2 giá trị, 3 giá trị, 4 giá trị
+- padding không có giá trị auto và âm
+- Muốn căn giữa một thẻ inline thì bọc 1 thẻ block và cho text-align: center cho thẻ block đó
+
+4 thuộc tính mở rộng:
+- padding-top --> nếu là giá trị % sẽ được tính theo % width của thẻ cha 
+- padding-left
+- padding-right
+- padding-bottom
+
+
+Lưu ý:
+padding, margin nếu dùng % sẽ được tính theo width của thành phần cha 
+ 
+*/
+.box {
+  border: 1px solid red;
+  /* padding-top: 56.25%; */
+}
+.btn-wrap {
+  text-align: center;
+  padding: 20px 0;
+}
+.btn {
+  text-decoration: none;
+  border: 1px solid red;
+  padding: 10px 30px;
+  background-color: green;
+  color: #fff;
+  display: inline-block;
+}

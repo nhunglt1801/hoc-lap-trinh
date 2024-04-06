@@ -1,0 +1,21 @@
+/* 
+Thuộc tính filter: được sử dụng để thay đổi màu sắc của các thẻ html
+--> Tạo bộ lọc cho các thẻ html
+
+Các giá trị hay sử dụng:
+- grayscale(number): từ 0 -> 1
+- opacity (number: từ 0 -> 1
+- blur(number + unit)
+
+
+opacity được tách làm 1 thuộc tính riêng
+--> nếu không sử dụng filter: opacity(number) thì có thể dùng opacity: number
+*/
+
+.box {
+  color: red;
+}
+.box:hover {
+  /* filter: blur(1px); */
+  filter: grayscale(1) blur(1px) opacity(0.5);
+}

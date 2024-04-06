@@ -1,0 +1,94 @@
+/* 
+Thuộc tính margin: dùng để căn lề cho phần tử html
+
+- margin: value
+- margin: value1 value2
+- margin: value1 value2 value3
+- margin: value1 value2 value3 value4
+
+
+có 4 thuộc tính mở rộng
+- margin-top 
+- margin-bottom
+- margin-left
+- margin-right
+
+Đơn vị % tỷ lệ theo width của cha 
+
+Lưu ý:
+--> margin chấp nhận giá trị âm và auto
+
+--> margin-top và margin-bottom chri hoạt động với block
+
+<!!!!!> Căn giữa 1 thẻ block thì sử dụng margin và width của phần tử căn giữa nhỏ hơn width của cha
+
+<!!!!!> Căn giữa 1 thẻ inline thì bọc 1 thẻ block và cho thẻ block đó text-align: center;
+
+Thu hẹp lề 
+TH1: 2 thành phần đứng cạnh nhau
+- 2 giá trị cùng dấu thì sẽ lấy giá trị tuyệt đối Lớn hơn
+- 2 giá trị trái dấu thì sẽ Cộng lại
+
+
+Box model
+--> Mô hình hộp của một thẻ html
+width của 1 phần tử: border + padding + content, không bao gồm margin
+
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.box {
+  width: 300px;
+  border: 1px solid red;
+  padding: 30px;
+  /* margin: 30px;
+  margin-top: -30px; */
+  /*  margin-left: auto;
+  margin-right: auto; */
+  margin-inline: auto;
+  margin-block: 30px;
+}
+h2:first-of-type {
+  border: 1px solid red;
+  margin-bottom: 30px;
+}
+h2:last-of-type {
+  border: 1px solid red;
+  margin-top: 20px;
+}
+
+.banner {
+  background-color: green;
+  color: #fff;
+  text-align: center;
+  /* border: 1px solid transparent; */
+  /* display: inline-block;
+  width: 100%; */
+  /* display: flex;
+  justify-content: center; */
+  /* position: absolute;
+  width: 100%; */
+  /* overflow: auto; */
+  /* float: left;
+  width: 100%; */
+}
+.banner h3 {
+  padding: 30px 0;
+}
+
+/* 
+Thuộc tính box-sizing: chọn kích thước của box theo content hay border
+- content-box: giá trị mặc định
+- border-box: chọn giá trị theo border --> tính từ border, đẩy content vào trong và tăng chiều cao lên
+*/
+.content {
+  box-sizing: border-box;
+  width: 300px;
+  border: 5px solid red;
+  padding: 40px;
+  margin: 5px;
+}
