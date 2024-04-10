@@ -1,0 +1,65 @@
+/* 
+Position: Thay đổi vị trí của các thẻ html
+- static: không có position 
+- relative: vị trí tương đối
+- absolute: vị trí tuyệt đối
+- fixed: vị trí cố định
+
+Khi sử dụng position trừ satatic thì sẽ có các thuọc tính:
+- top
+- left
+- right
+- bottom
+- z-index
+- inset
+
+- position: relative
+
+
+*/
+body {
+  height: 2000px;
+}
+.box {
+  border: 1px solid red;
+  width: 400px;
+  height: 300px;
+  margin: 30px auto;
+  position: absolute;
+}
+.item {
+  padding: 10px 20px;
+  background: green;
+  border: 1px solid #fff;
+  color: #fff;
+  width: 100px;
+  box-sizing: border-box;
+}
+
+.item:nth-child(2) {
+  /* top: 0;
+    left: calc(100% - 100px); */
+  /* height: auto;
+  width: auto; */
+  /* top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+  /* inset: 0; */
+  position: relative;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+}
+
+.item:nth-child(3) {
+  position: relative;
+  top: -5px;
+  left: 20px;
+}
+/* 
+- position: absolute --> 
+- Cơ chế giãn
+- Linh hoạt trong di chuyển tới các vị trí top, left, right, bottom
+
+*/

@@ -1,0 +1,118 @@
+/* 
+Thuộc tính float: trôi các thẻ html về phía bên trái hoặc bên phải thành phần cha
+- none: mặc định
+- left: trái
+- right: phải
+
+Thuộc tính clear: ngăn không cho các thẻ html tự động trôi theo float 
+- none
+- left
+- right
+- both
+
+Lưu ý:  thuộc tính này chỉ được sử dụng trong thẻ block 
+Các cách để chống sập chiều cao của box cha khi sử dụng float ở phần tử con:
+- Thêm overflow: auto; vào .box
+- Thêm <div class="clear"></div> trước thẻ đóng của .box
+
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.box {
+  width: 400px;
+  /* height: 300px; */
+  border: 1px solid red;
+  margin: 30px auto;
+  /* overflow: auto; */
+  padding: 10px;
+}
+.box::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.column-a {
+  width: 30%;
+  height: 100px;
+  background-color: green;
+  float: right;
+}
+.column-b {
+  width: 30%;
+  height: 150px;
+  background: blueviolet;
+  float: right;
+}
+.box span {
+  background: green;
+  color: white;
+}
+.clear {
+  clear: both;
+}
+.box img {
+  width: 200px;
+  height: 200px;
+  float: left;
+  margin-right: 10px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  shape-outside: circle(50%);
+}
+.box button {
+  /* display: block;
+  margin: 0 auto; */
+
+  float: right;
+}
+
+.box a {
+  float: right;
+  /* display: block;
+  margin: 0 auto; */
+}
+/* 
+Counter CSS: Nhóm các thuộc tinh để thực hiện đếm
+- Tạo bộ đếm
+- Đếm
+- Hiển thị kết quả đếm
+
+*/
+body {
+  counter-reset: dem;
+}
+ul {
+  width: 300px;
+  margin: 30px auto;
+  list-style: none;
+  /* counter-reset: dem; */
+}
+ul li {
+  clear: both;
+  line-height: 1.5;
+  counter-increment: dem;
+}
+ul li::before {
+  /* content: attr(data-index); */
+  /* content: "1"; */
+  content: "#" counter(dem);
+  display: block;
+  background-color: green;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin-right: 5px;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
