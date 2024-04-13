@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h2 {
+  color: green;
+  position: relative;
+}
+h2 > span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 100%;
+  transition: top 0.3s ease;
+  overflow: hidden;
+}
+h2 > span > span {
+  background-color: yellow;
+  color: red;
+  position: absolute;
+  bottom: 0;
+}
+h2:hover > span {
+  top: 0;
+}

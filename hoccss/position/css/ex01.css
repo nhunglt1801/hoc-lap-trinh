@@ -5,7 +5,7 @@ Position: Thay đổi vị trí của các thẻ html
 - absolute: vị trí tuyệt đối
 - fixed: vị trí cố định
 
-Khi sử dụng position trừ satatic thì sẽ có các thuọc tính:
+Khi sử dụng position trừ satatic thì sẽ có các thuộc tính:
 - top
 - left
 - right
@@ -13,7 +13,8 @@ Khi sử dụng position trừ satatic thì sẽ có các thuọc tính:
 - z-index
 - inset
 
-- position: relative
+Lưu ý: 
+Với position: relative thì có z-index cao hơn các phần tử 
 
 
 */

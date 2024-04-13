@@ -1,0 +1,38 @@
+.toogle {
+  display: block;
+  width: 80px;
+  height: 40px;
+  background: gray;
+  margin: 30px auto;
+  border-radius: 99px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+.btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 99px;
+  -webkit-border-radius: 99px;
+  background: transparent;
+  position: relative;
+  transition: background 0.3s linear;
+}
+.btn::before {
+  content: "";
+  display: block;
+  width: 38px;
+  height: 38px;
+  border-radius: 99px;
+  background: #fff;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  transition: left 0.3s linear;
+}
+input:checked + .toogle .btn {
+  background: green;
+}
+input:checked + .toogle .btn::before {
+  left: calc(100% - 39px);
+}

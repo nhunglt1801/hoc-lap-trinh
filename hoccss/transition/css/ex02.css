@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+/*.btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 30px;
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.btn::before,
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+.btn::before {
+  width: 100%;
+  background: green;
+  z-index: -2;
+}
+.btn::after {
+  width: 0;
+  background: red;
+  z-index: -1;
+  transition: width 0.5s linear;
+  -webkit-transition: width 0.5s linear;
+  -moz-transition: width 0.5s linear;
+  -ms-transition: width 0.5s linear;
+  -o-transition: width 0.5s linear;
+}
+.btn:hover::after {
+  width: 100%;
+} */
+
+/* Chữa bài */
+.btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 30px;
+  background-color: green;
+  color: #fff;
+  border: 0;
+  border-radius: 99px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-border-radius: 99px;
+  -moz-border-radius: 99px;
+  -ms-border-radius: 99px;
+  -o-border-radius: 99px;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: red;
+  transition: right 1s ease-in-out;
+  -webkit-transition: right 1s ease-in-out;
+  -moz-transition: right 1s ease-in-out;
+  -ms-transition: right 1s ease-in-out;
+  -o-transition: right 1s ease-in-out;
+}
+.btn span {
+  position: relative;
+}
+.btn:hover::before {
+  right: 0;
+}
