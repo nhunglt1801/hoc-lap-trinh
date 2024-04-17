@@ -1,0 +1,54 @@
+/* 
+Transform: Thay đổi hình dạng của một thẻ html: xoay, nghiêng, di chuyển, phóng to, thu nhỏ
+ Cú pháp: transform: value
+ Rotate
+ - rotate(angle): truc z nhin thang
+ - rotateX(angle): truc X 
+ - rotateY(angle): truc Y
+ Scale:
+ - scale(x, y): nếu để 1 giá trị thì là x = y --> scale chỉ nhận số lần cụ thể 
+ - scaleX(value) --> ít sdụng
+ - scaleY(value) --> ít sdụng
+ Skew: độ nghiêng
+ - skew(x, y)
+ - skewX(x)
+ - skewY(y)
+ Translate: dịch chuyển
+ - translate(x, y)
+ - translateX(x)
+ - translateY(y)
+ Điểm khác nhau giữa transform: translate # position: relatiev
+- Nếu sử giá trị % thì giá trị translate của phần tử con là % theo chính nó, còn position thì sẽ tỉ lệ theo cha
+
+
+ Các thuộc tính tách ra:
+ - rotate --> transform: rotate()
+ - scale --> transform: scale()
+ - translate --> transform: translate()
+
+
+#2 Thuọc tính transform-origin: x y --> Chọn vị trí của trục khi thực hiện transform (Các giá trị giống y hệt thuộc tính background-position) 
+
+*/
+.container {
+  padding: 50px;
+  border: 1px solid red;
+}
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: green;
+  color: #fff;
+  font-size: 2rem;
+  margin: 30px auto;
+  transition: all 0.4s ease;
+  transform-origin: bottom right;
+}
+
+.container:hover .box {
+  transform: rotate(90deg);
+  /* rotate: 90deg;  */
+  /* transform: rotate(45deg) scale(1.5, 1.1); */
+  /* transform: skew(30deg, 30deg); */
+  /* transform: translate(100%); */
+}

@@ -1,0 +1,82 @@
+/* .list {
+  width: 300px;
+  margin: 30px auto;
+  font-size: 20px;
+}
+.item {
+  margin-bottom: 10px;
+}
+label {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+}
+label::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid blue;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+label::after {
+  content: "";
+  display: block;
+  width: 13px;
+  height: 6px;
+  border: 2px solid blue;
+  border-top: 0;
+  border-right: 0;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  transform: rotate(-45deg);
+  display: none;
+}
+input#course-1:checked + label::after,
+input#course-2:checked + label::after,
+input#course-3:checked + label::after {
+  display: block;
+} */
+
+.list {
+  width: 300px;
+  margin: 30px auto;
+}
+
+.checkbox {
+  display: block;
+  padding: 5px 0;
+  position: relative;
+  cursor: pointer;
+}
+.checkbox span {
+  clear: both;
+}
+.checkbox span::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  display: block;
+  border: 1px solid #000;
+  float: left;
+  margin-right: 5px;
+}
+.checkbox span::after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 3px;
+  border: solid #000;
+  border-width: 0 0 2px 2px;
+  rotate: -45deg;
+  position: absolute;
+  top: 10px;
+  left: 4px;
+  display: none;
+}
+.checkbox input:checked + span::after {
+  display: block;
+}
