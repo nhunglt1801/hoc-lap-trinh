@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.logo-list {
+  padding: 30px 0;
+  margin-inline: auto;
+  width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.logo-item {
+  text-align: center;
+}
+.logo-item img {
+  width: auto;
+  max-height: 55px;
+}
