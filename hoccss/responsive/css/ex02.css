@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+ul,
+ol {
+  list-style: none;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  color: #000;
+  line-height: 1.5;
+}
+/* Desktop */
+.header-wrapper {
+  padding: 30px 0;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar {
+  margin-left: auto;
+}
+.navbar ul {
+  display: flex;
+}
+.navbar ul li a {
+  padding: 0 20px;
+  font-weight: 500;
+}
+.contact {
+  display: block;
+  color: #fff;
+  padding: 10px 20px;
+  background: #75b7eb;
+  border-radius: 99px;
+  font-weight: 500;
+  margin-left: 20px;
+}
+.icon-toggle {
+  display: none;
+  font-size: 2.5rem;
+  margin-left: 20px;
+}
+
+/* Media Query */
+/* Tablet */
+@media screen and (max-width: 991.98px) {
+  .container {
+    padding: 0 20px;
+  }
+  .navbar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    background: #000;
+    translate: -100%;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+  }
+  .navbar ul {
+    display: block;
+    padding-top: 40px;
+  }
+  .navbar ul li a {
+    display: block;
+    color: #fff;
+    padding-bottom: 20px;
+  }
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  .contact {
+    margin-left: auto;
+  }
+  .icon-toggle {
+    display: block;
+  }
+  input[type="checkbox"]:checked ~ .navbar {
+    translate: 0;
+    transition: all 0.3s ease;
+    visibility: visible;
+    opacity: 1;
+  }
+  input[type="checkbox"]:checked ~ .overlay {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+}
+/* Mobile */
+@media screen and (max-width: 767.98px) {
+  .container {
+    padding: 0 20px;
+  }
+  .contact {
+    display: none;
+  }
+}

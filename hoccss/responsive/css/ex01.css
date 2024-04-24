@@ -1,0 +1,30 @@
+body {
+  color: red;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 1399.98px) {
+  body {
+    color: blue;
+  }
+}
+@media screen and (max-width: 1199.98px) {
+  body {
+    color: green;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  body {
+    color: blue;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  body {
+    color: yellow;
+  }
+}
+@media screen and (max-width: 575.98px) {
+  body {
+    color: pink;
+  }
+}

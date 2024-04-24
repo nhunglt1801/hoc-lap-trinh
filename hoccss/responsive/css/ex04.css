@@ -1,0 +1,114 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css);
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+:root {
+  --primary-color: #5eb9f0;
+  --header-height: 85px;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+}
+.header .inner {
+  width: 1140px;
+  max-width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: var(--header-height);
+}
+.logo-link {
+  margin-right: auto;
+}
+.logo-link img {
+  height: 26px;
+}
+.nav ul {
+  display: flex;
+  list-style: none;
+}
+.nav ul li a {
+  display: block;
+  padding: 24px 20px;
+  font-weight: 500;
+  font-size: 17px;
+  transition: color 0.2s ease-in-out;
+}
+.nav ul li a:hover {
+  color: var(--primary-color);
+}
+.btn-primary {
+  padding: 8px 20px;
+  color: #fff;
+  background: var(--primary-color);
+  border-radius: 99px;
+  font-size: 17px;
+  line-height: 1.8;
+  font-weight: 500;
+  min-width: 105px;
+  margin-left: 15px;
+}
+
+/* Mobile & tablet */
+@media screen and (max-width: 991px) {
+  .nav {
+    display: none;
+  }
+  .btn-menu {
+    font-size: 25px;
+    color: #333;
+    margin-left: 16px;
+  }
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity visibility;
+    transition-duration: 0.3s;
+  }
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 1);
+    z-index: 1;
+    translate: -100%;
+    transition: translate 0.3s ease;
+  }
+  .open-toggle:checked ~ .overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+  .open-toggle:checked ~ .sidebar {
+    translate: 0;
+  }
+}
+/* Mobile */
+@media screen and (max-width: 575px) {
+}
+/* tablet */
+@media screen and (min-width: 576px) and (max-width: 991px) {
+}
+/* Desktop */
+@media screen and (min-width: 992px) {
+  .btn-menu {
+    display: none;
+  }
+}

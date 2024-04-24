@@ -1,0 +1,49 @@
+/* 
+Trong CSS lưu các giá trị của các thuộc tính vào biến để tái sử dụng.
+- Biến toàn cục (global variable): Dùng ở khắp mọi nơi kể từ vị trí khai báo
+- Biến cục bộ (local variable): Biến cục bộ chỉ sử dụng trong các selector và selector con
+
+
+*/
+/* 
+Biến toàn cục sẽ được khai báo trong lớp giả :root 
+*/
+:root {
+  --primary-color: yellow;
+  --secondary-color: green;
+  --font-size: 16px;
+  --text-color: #333;
+  --padding: 30px;
+}
+
+body {
+  font-size: var(--font-size);
+  color: var(--text-color);
+}
+
+h1 {
+  color: var(--secondary-color);
+}
+.box {
+  color: var(--primary-color);
+  --font-style: italic;
+  --bg-color: gray;
+  background-color: var(--bg-color);
+}
+
+.box h2 {
+  font-style: var(--font-style);
+}
+
+.box:hover {
+  --bg-color: bisque;
+}
+.content {
+  padding: var(--padding);
+  border: 1px solid red;
+  margin-top: var(--padding);
+}
+.content:hover {
+  /* padding: calc(var(--padding) / 2); */
+  margin-top: calc(0px - var(--padding));
+}
