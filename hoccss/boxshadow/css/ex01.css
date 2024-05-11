@@ -1,0 +1,45 @@
+/* 
+Đổ bóng
+
+1. Khối
+box-shadow: h-offset v-offset blur spread color
+- h-offset: Vị trí của bóng theo chiều ngang
+- v-offset: vị trí của bóng theo chiều dọc
+- blur: độ nhòe
+- spread: kích thước
+- color: màu của bóng
+
+2. Text
+text-shadow: h-offset v-offset blur color
+
+Độ ưu tiên trong css
+0. important
+1. inline
+2. id
+3. class
+4. tag
+
+Lưu ý:
+- Selector càng chi tiết thì độ Ưu tiên càng cao
+- Code ở bên dưới sẽ ưu tiên cao hơn
+
+*/
+#box {
+  background: red;
+}
+.box {
+  width: 200px;
+  height: 200px;
+  margin: 20px auto;
+  background: green !important;
+  box-shadow: 5px 5px 5px red, 10px 10px 5px blueviolet, 15px 15px 5px blue;
+}
+
+h1 {
+  text-align: center;
+  text-shadow: 1px 1px 1px black, -1px -1px 1px black, 1px -1px 1px black,
+    -1px 1px 1px black, 1px 1px 1px black, -1px -1px 1px black,
+    1px -1px 1px black, -1px 1px 1px black;
+  font-size: 3rem;
+  color: white;
+}

@@ -1,0 +1,71 @@
+@import "partials/reset";
+
+// Đây là comment css
+
+/*
+Comment CSS
+*/
+
+// Cú pháp lồng selector - Nested
+// Biến: Lưu ý nên đặt theo quy tắc camelCase
+
+
+// Biến toàn cục (Global Variable)
+$primaryColor: red;
+
+.header {
+    
+    padding: 30px 0;
+    background: $primaryColor;
+    .top-bar {
+        // Biến cục bộ (Local Variable) 
+        $textColor: #333; 
+        background: yellow;
+        a {
+            text-decoration: none;
+            color: $textColor;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .header-inner {
+        background: red;
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        nav {
+            &.primary-menu {
+                ul {
+                    > li {
+                        > a {
+                            color: #333;
+                            &::before {
+                                content: "";
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// Khai báo biến là 1 số để sử dụng biến
+$number: 10;
+body {
+    font-size: #{$number /10 + 0%};
+}
+
+$selector: '.col-a';
+$propertyBg: 'background';
+#{$selector} {
+    color: red;
+    #{$propertyBg}: gray
+}
+$prefix: "col-";
+$number: 12;
+#{"." + $prefix + $number} {
+    width: 50%;
+}

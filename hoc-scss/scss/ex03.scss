@@ -1,0 +1,66 @@
+// .base {
+//     padding: 30px 0;
+//     max-width: 1200px;
+//     margin: 0 auto;
+// }
+// placeholder
+// %section-base {
+//     padding: 30px 0;
+//     max-width: 1200px;
+//     margin: 0 auto;
+// }
+
+@mixin section-base {
+    padding: 30px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    .item {
+        color: red;
+    }
+}
+@mixin container {
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        @content;
+    }
+}
+@mixin media-desktop {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
+@mixin center($width, $spacer: 0) {
+    max-width: $width;
+    margin: $spacer auto;
+}
+@include media-desktop {
+    .header {
+        @include center(1200px);
+        padding: 0;
+        .menu {
+            display: block;
+        }
+    }
+    .footer {
+        @include center(1300px, 30px);
+    }
+}
+@include container {
+    background: red;
+    box-shadow: 5px 15px 10px #ccc;
+}
+.posts {
+    // @extend %section-base;
+    @include section-base();
+    background: red;
+}
+.products {
+    // @extend %section-base;
+    @include section-base();
+    background: green;
+    color: #fff;
+}
+
+// @use
+// @forward
