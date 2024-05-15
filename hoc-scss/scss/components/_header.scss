@@ -1,0 +1,22 @@
+$primaryColor: red; //Public Member
+$_secondaryColor: gray; //Private Member
+@mixin section-base {
+    padding: 20px 0;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+%section-base {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.header {
+    padding: 10px 0;
+    background: gray;
+    border-color: $_secondaryColor;
+    .header-logo {
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}

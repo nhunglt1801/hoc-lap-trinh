@@ -1,0 +1,11 @@
+@use "components/footer";
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: footer.$primaryColor;
+}
+/*
+Import cả folder
+ B1: Tạo ra file _index.scss
+ B2: Forward tất cả các file trong folder vào _index.scss
+ B3: Chỗ nào cần import cả folder chỉ cần import file _index.scss
+*/

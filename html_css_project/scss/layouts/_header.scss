@@ -1,0 +1,102 @@
+@use "../partials/variables" as v;
+@use "../partials/mixin" as m;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+}
+a {
+    text-decoration: none;
+    color: v.$textColor;
+}
+button {
+    background: none;
+}
+ul,
+ol {
+    list-style: none;
+}
+body {
+    font-family: v.$primaryText;
+    font-size: v.$textSize;
+    color: v.$textColor;
+}
+.header {
+    height: v.$headerHeight;
+    padding: v.$headerPadding;
+    background: v.$white;
+    box-shadow: 0px 1.667px 8.333px 0px rgba(0, 0, 0, 0.15);
+    @include m.container {
+        @include m.dflex-center;
+    }
+
+    .logo {
+        display: block;
+        margin-right: auto;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .header-wrap {
+        @include m.dflex-center;
+        .nav-list {
+            @include m.dflex-center {
+                column-gap: v.$headerColumnGap;
+                margin-right: v.$margin50;
+            }
+            .nav-link {
+                font-size: v.$textSize;
+                padding: 47px 0;
+                position: relative;
+                font-weight: 600;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0px;
+                    height: 2px;
+                    background: v.$primaryColor;
+                    transition: width 0.5s ease-in-out;
+                }
+                &:hover,
+                &.active {
+                    color: v.$primaryColor;
+                }
+                &:hover::after,
+                &.active::after {
+                    width: 100%;
+                }
+            }
+        }
+        .actions {
+            @include m.dflex-center {
+                column-gap: v.$headerColumnGap;
+            }
+            .action-item {
+                &.cart {
+                    position: relative;
+                    &::after {
+                        @include m.dflex-center {
+                            justify-content: center;
+                        }
+                        position: absolute;
+                        top: -30%;
+                        right: -30%;
+                        content: "3";
+                        width: 15px;
+                        height: 15px;
+                        background: v.$red;
+                        border-radius: 50%;
+                        color: v.$white;
+                        font-size: v.$f-10;
+                        font-weight: v.$fw-500;
+                    }
+                }
+            }
+        }
+    }
+}
