@@ -99,6 +99,7 @@
 /**
  * Falsy: trong điều kiện cần phải ép kiểu dữ liệu sang boolean mà trả về false thì gọi là Falsy
  * - 0
+ * - ""
  * - undefiend
  * - null
  * - false
@@ -107,9 +108,9 @@
  * Truthy: ngược lại
  */
 // Ví dụ: Minh họa toán tử 3 ngôi
-var a = 0;
+// var a = "";
 // Nếu a là truthy gán b = 20, ngược lại là 0
-var b = !a ? 20 : 30;
-console.log(b);
+// var b = a ? 20 : 30;
+// console.log(b);
 
 // Đặt giá trị vào biểu thức logic thì cần ép kiểu nên ta sử dụng truthy và falsy
