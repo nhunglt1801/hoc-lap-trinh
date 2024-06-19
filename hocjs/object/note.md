@@ -76,3 +76,42 @@ user.getName().getEmail.bind(user).call();
 ## prototype
 
 Object Wrap (Object bọc)
+
+## Constructor
+
+- Tình huống:
+  - Xây dựng object user
+    - name
+    - email
+    - phone
+    - password
+    - login()
+  - Xây dựng object partner
+    - name
+    - email
+    - phone
+    - password
+    - login()
+
+==> Cấu trúc object giống nhau
+==> Giải pháp: Tạo ra một bản thiết kế --> Tọa các object từ bản thiết kế đó
+
+## Phương thức tĩnh, thuộc tính tĩnh
+
+- không phụ thuộc vào object hoặc instance
+  ==> phụ thuộc constructor, truy cập trực tiếp từ constructor
+
+Ví dụ:
+Về phương thức tĩnh: dữ liệu không bị thay đổi -> gọi là phương thức tĩnh (static method)
+
+- Array.isArray()
+- Number.isInteger()
+- Number.isNaN()
+- Number.isFinite()
+- Number.isSafeInteger()
+- Number.parseFloat()
+- Number.parseInt()
+- Number.toFixed()
+- Number.toLocaleString()
+
+Phương thức không tĩnh (non-static method)
