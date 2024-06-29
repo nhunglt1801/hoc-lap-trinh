@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+
+        .left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+        }
+
+        .right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+        }
+
+        .btn {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1>Event Object</h1> -->
+    <!-- <button class="btn">Click <span>Me</span></button> -->
+    <div class="box">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <button class="btn">Đăng ký khóa học</button>
+    <script src="js/ex07.js"></script>
+</body>
+
+</html>
