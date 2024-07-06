@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.player {
+  width: 80%;
+  margin: 30px auto;
+}
+.player .play-action {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.player .play-action i {
+  cursor: pointer;
+}
+.player .play-timer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.progress-bar {
+  position: relative;
+  background: gray;
+  height: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+.progress-bar:hover {
+  background: goldenrod;
+}
+.progress-bar .timer {
+  display: none;
+  position: absolute;
+  top: -15px;
+  left: 0;
+  transform: translateX(-50%);
+  background-color: blueviolet;
+  color: #fff;
+  text-align: center;
+  font-size: 0.6rem;
+}
+.progress-bar:hover .timer {
+  display: inline-block;
+}
+.progress-bar .progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: red;
+}
+.progress-bar .progress span {
+  position: absolute;
+  top: -2px;
+  right: -6px;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: blueviolet;
+}
