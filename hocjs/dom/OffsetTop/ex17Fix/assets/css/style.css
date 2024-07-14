@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.nav.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: yellow;
+  padding: 5px 0;
+}
+.btn {
+  padding: 5px 10px;
+}
+.btn.active {
+  color: red;
+}
+.section {
+  min-height: 100vh;
+  padding: 15px;
+}
