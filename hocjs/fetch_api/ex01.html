@@ -4,11 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 
 <body>
+    <div class="container py-3">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th width="5%">STT</th>
+                    <th>Tên</th>
+                    <th>Email</th>
+                    <th>Trạng thái</th>
+                    <th width="5%">Sửa</th>
+                    <th width="5%">Xóa</th>
+                </tr>
+            </thead>
+            <tbody>
 
+            </tbody>
+        </table>
+        <form class="update-form" action="">
+            <h3>Thêm người dùng</h3>
+            <div class="mb-3">
+                <label for="">Tên</label>
+                <input type="text" name="name" id="" class="form-control" placeholder="Tên..." required>
+            </div>
+            <div class="mb-3">
+                <label for="">Email</label>
+                <input type="text" name="email" id="" class="form-control" placeholder="Email..." required>
+            </div>
+            <div class="mb-3">
+                <label for="">Trạng thái</label>
+                <select name="status" id="" class="form-select">
+                    <option value="inactive">Chưa kích hoạt</option>
+                    <option value="active">Kích hoạt</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+        </form>
+    </div>
     <script src="js/ex01.js"></script>
 </body>
 
