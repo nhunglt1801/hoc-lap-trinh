@@ -50,19 +50,10 @@
 //   .then((users) => console.log(users));
 
 const serverApi = `http://localhost:3000`;
-const getUsers = async () => {
-  try {
-    const response = await fetch(`${serverApi}/users`);
-    if (!response.ok) {
-      throw new Error("Fetch to failed");
-    }
-    const users = await response.json();
-    render(users);
-  } catch (e) {
-    console.log(e);
-  }
-};
-
+const cancelBtn = document.createElement("button");
+cancelBtn.classList = "btn btn-danger";
+cancelBtn.type = "button";
+cancelBtn.innerText = "Hủy";
 const addUser = async (data) => {
   try {
     const response = await fetch(`${serverApi}/users`, {
@@ -104,14 +95,39 @@ const updateUser = async (id, data) => {
 };
 const deleteUser = async (id) => {
   try {
-    await fetch(`${serverApi}/users/${id}`, {
+    const response = await fetch(`${serverApi}/users/${id}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
     });
-  } catch {
-    return false;
+    if (!response.ok) {
+      return false;
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+const getUsers = async (query = {}) => {
+  try {
+    // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+
+    let queryString = new URLSearchParams(query).toString();
+    // console.log(queryString);
+    if (queryString) {
+      queryString = "?" + queryString;
+    }
+    const response = await fetch(`${serverApi}/users${queryString}`);
+    if (!response.ok) {
+      throw new Error("Fetch to failed");
+    }
+    const users = await response.json();
+    render(users);
+    // Tính số trang = Math.ceil(Tổng số bản ghi / Số bản ghi của một trang);
+    const totalPages = Math.ceil(
+      response.headers.get("x-total-count") / query._limit
+    );
+    // console.log(totalPages);
+    renderPagination(totalPages);
+  } catch (e) {
+    console.log(e);
   }
 };
 const render = (users) => {
@@ -121,8 +137,8 @@ const render = (users) => {
       return `
     <tr>
         <td>${index + 1}</td>
-        <td>${name}</td>
-        <td>${email}</td>
+        <td>${name.replaceAll("<", "&lt;").replaceAll(">", "&gt;")}</td>
+        <td>${email.replaceAll("<", "&lt;").replaceAll(">", "&gt;")}</td>
         <td><span class="badge bg-${
           status === "active" ? "success" : "warning"
         }">${status === "active" ? "Kích hoạt" : "Chưa kích hoạt"}</span></td>
@@ -137,6 +153,59 @@ const render = (users) => {
     })
     .join("")}`;
 };
+const renderPagination = (totalPages) => {
+  const paginationViewEl = document.querySelector(".pagination-view");
+  paginationViewEl.innerHTML = `
+              <ul class="pagination d-flex justify-content-end">
+                ${
+                  query._page > 1
+                    ? `<li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous" data-type="prev">&laquo;
+                    </a>
+                </li>`
+                    : ""
+                }
+                ${Array.from(Array(totalPages).keys())
+                  .map((_, index) => {
+                    const page = index + 1;
+                    return `<li class="page-item ${
+                      page === query._page ? "active" : ""
+                    }" ><a class="page-link" href="#" data-page=${page}>
+                  ${page}</a></li>`;
+                  })
+                  .join("")}
+               ${
+                 query._page < totalPages
+                   ? ` <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next" data-type="next">
+                        &raquo;
+                    </a>
+                </li>`
+                   : ""
+               }
+            </ul>`;
+};
+const handlePagination = () => {
+  const paginationEl = document.querySelector(".pagination-view");
+  paginationEl.addEventListener("click", (e) => {
+    e.preventDefault();
+    const page = e.target.dataset.page;
+    const type = e.target.dataset.type;
+    if (page) {
+      query._page = +page;
+      getUsers(query);
+    }
+    if (type === "prev") {
+      query._page--;
+      getUsers(query);
+    }
+    if (type === "next") {
+      query._page++;
+      getUsers(query);
+    }
+  });
+};
+
 const handleAddUser = async () => {
   const form = document.querySelector(".update-form");
   form.addEventListener("submit", async (e) => {
@@ -144,6 +213,7 @@ const handleAddUser = async () => {
 
     // const formData = Array.from(new FormData(form));
     const formData = Object.fromEntries(new FormData(form));
+    const action = form.dataset.action;
     const id = form.dataset.id;
     if (!id) {
       const status = await addUser(formData);
@@ -167,13 +237,11 @@ const switchFormAdd = () => {
   const h3 = form.querySelector("h3");
   h3.innerText = `Thêm người dùng`;
   delete form.dataset.id;
+  cancelBtn.remove();
 };
 const handleUpdateUser = () => {
   const tbody = document.querySelector("table tbody");
   tbody.addEventListener("click", async ({ target }) => {
-    // const action = e.target.dataset.action;
-    // const id = e.target.dataset.id;
-    // console.log(target.dataset);
     const { action, id } = target.dataset;
     if (action === "update") {
       const user = await getUser(id);
@@ -185,7 +253,20 @@ const handleUpdateUser = () => {
     }
   });
 };
-
+const handleDeleteUser = () => {
+  const tbody = document.querySelector("table tbody");
+  tbody.addEventListener("click", async ({ target }) => {
+    const { action, id } = target.dataset;
+    if (action === "delete" && confirm("Chắc chưa?")) {
+      const status = await deleteUser(id);
+      if (!status) {
+        alert("Đã có lỗi xảy ra");
+        return;
+      }
+      getUsers();
+    }
+  });
+};
 const changeFormUpdate = (user) => {
   const form = document.querySelector(".update-form");
   form.dataset.id = user.id;
@@ -194,7 +275,63 @@ const changeFormUpdate = (user) => {
   form.elements.name.value = user.name;
   form.elements.email.value = user.email;
   form.elements.status.value = user.status;
+  form.append(cancelBtn);
 };
-getUsers();
+const cancelUpdateForm = () => {
+  cancelBtn.addEventListener("click", () => {
+    switchFormAdd();
+  });
+};
+const debounce = (callback, timeout = 500) => {
+  let timeoutId = null;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      callback(...args);
+    }, timeout);
+  };
+};
+const handleSearch = () => {
+  const keywordEl = document.querySelector(".keyword");
+  keywordEl.addEventListener(
+    "input",
+    debounce((e) => {
+      const keyword = e.target.value;
+      query.q = keyword;
+      getUsers(query);
+    })
+  );
+};
+const handleSort = () => {
+  const btnEl = document.querySelector(".btn-group");
+  const allowed = ["latest", "oldest"];
+  btnEl.addEventListener("click", ({ target }) => {
+    const sort = target.dataset.sort;
+    if (allowed.includes(sort)) {
+      // Xử lý gọi API
+      query._order = sort === "latest" ? "desc" : "asc";
+      getUsers(query);
+      const btnActive = btnEl.querySelector(".active");
+      if (btnActive) {
+        btnActive.classList.remove("active");
+      }
+      target.classList.add("active");
+    }
+  });
+};
+const query = {
+  _sort: "id",
+  _order: "desc",
+  _limit: 3,
+  _page: 1,
+};
+getUsers(query);
 handleAddUser();
 handleUpdateUser();
+cancelUpdateForm();
+handleDeleteUser();
+handleSearch();
+handleSort();
+handlePagination();
+// Kỹ thuật debounce
+// Kỹ thuật throttle => Tìm hiểu
