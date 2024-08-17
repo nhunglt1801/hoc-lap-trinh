@@ -219,13 +219,16 @@ const handleAddUser = async () => {
       const status = await addUser(formData);
       if (status) {
         // Thêm thành công
-        getUsers();
+        query._page = 1; //Chuyển về trang 1
+        query._order = "desc";
+        getUsers(query);
+        renderSort();
         form.reset();
       }
     } else {
       const status = await updateUser(id, formData);
       if (status) {
-        getUsers();
+        getUsers(query);
         switchFormAdd();
       }
     }
@@ -257,13 +260,21 @@ const handleDeleteUser = () => {
   const tbody = document.querySelector("table tbody");
   tbody.addEventListener("click", async ({ target }) => {
     const { action, id } = target.dataset;
+    console.log(action);
+    console.log(id);
     if (action === "delete" && confirm("Chắc chưa?")) {
       const status = await deleteUser(id);
+      console.log(status);
       if (!status) {
         alert("Đã có lỗi xảy ra");
         return;
       }
-      getUsers();
+      const remainUser = document.querySelectorAll("tbody tr").length - 1;
+      if (remainUser === 0 && query._page > 1) {
+        query._page--;
+        getUsers(query);
+      }
+      getUsers(query);
     }
   });
 };
@@ -302,8 +313,18 @@ const handleSearch = () => {
     })
   );
 };
+const renderSort = () => {
+  const btnEl = document.querySelector(".btn-sort");
+  btnEl.innerHTML = `
+  <button class="btn btn-primary btn-sm ${
+    query._order === "desc" ? "active" : ""
+  } new" data-sort="latest">Mới nhất</button>
+  <button class="btn btn-primary btn-sm old ${
+    query._order === "asc" ? "active" : ""
+  }" data-sort="oldest">Cũ nhất</button>`;
+};
 const handleSort = () => {
-  const btnEl = document.querySelector(".btn-group");
+  const btnEl = document.querySelector(".btn-sort");
   const allowed = ["latest", "oldest"];
   btnEl.addEventListener("click", ({ target }) => {
     const sort = target.dataset.sort;
@@ -311,11 +332,12 @@ const handleSort = () => {
       // Xử lý gọi API
       query._order = sort === "latest" ? "desc" : "asc";
       getUsers(query);
-      const btnActive = btnEl.querySelector(".active");
-      if (btnActive) {
-        btnActive.classList.remove("active");
-      }
-      target.classList.add("active");
+      // const btnActive = btnEl.querySelector(".active");
+      // if (btnActive) {
+      //   btnActive.classList.remove("active");
+      // }
+      // target.classList.add("active");
+      renderSort();
     }
   });
 };
@@ -333,5 +355,17 @@ handleDeleteUser();
 handleSearch();
 handleSort();
 handlePagination();
+renderSort();
 // Kỹ thuật debounce
 // Kỹ thuật throttle => Tìm hiểu
+
+// Bình thường các API sẽ ở trạng thái public
+// Tuy nhiên muốn bảo vệ API ==> cần phải thông qua các hình thức xác thực
+
+/**
+ * - API key
+ * - Basic Auth
+ * - Bearer
+ * - OAuth 2.0
+ *
+ */
