@@ -16,3 +16,6 @@ Refesh token:
 
 
 
+Xây dựng class/ object httpclient để xử lý http request tập trung
+- Xử lý refresh token
+- Quản lý các request tốt hơn
