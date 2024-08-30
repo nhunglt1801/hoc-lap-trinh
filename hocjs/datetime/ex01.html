@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            height: 100px;
+        }
+
+        .countdown .item {
+            background-color: red;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .countdown .item>* {
+            display: block;
+            text-align: center;
+        }
+
+        .countdown .item .value {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="countdown">
+        <div class="item days">
+            <span class="value">00</span>
+            <span class="label">Ngày</span>
+        </div>
+        <div class="item hours">
+            <span class="value">00</span>
+            <span class="label">Giờ</span>
+        </div>
+        <div class="item minutes">
+            <span class="value">00</span>
+            <span class="label">Phút</span>
+        </div>
+        <div class="item seconds">
+            <span class="value">00</span>
+            <span class="label">Giây</span>
+        </div>
+    </div>
+    <script src="js/ex01.js"></script>
+</body>
+
+</html>
