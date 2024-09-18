@@ -7,7 +7,7 @@
 - Nextjs -> React framework
 
 ## JSX
-- 
+
 
 ## Cơ chế xử lý:
 - Tạo giao diện phía js -> append đẩy vào root --> Client Side
